@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:background="@color/light_blue">
+    <RelativeLayout android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+        <ImageView android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:id="@+id/logo"
+                   android:layout_centerHorizontal="true"
+                   android:src="@drawable/ic_launcher_background"/>
+
+        <Button android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/logo"
+                android:id="@+id/bt_register"
+                android:background="@drawable/round_box"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
+                style="@style/Button"
+                android:text="@string/register_here"
+                android:layout_marginTop="20dp"/>
+
+        <Button android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bt_register"
+                android:id="@+id/bt_sign_in"
+                android:background="@drawable/round_box"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
+                android:text="@string/sign_in"
+                style="@style/Button"
+                android:layout_marginTop="10dp"/>
+    </RelativeLayout>
+</RelativeLayout>

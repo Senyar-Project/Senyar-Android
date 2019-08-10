@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:background="@color/darkBlue"
+        android:layout_height="match_parent">
+
+    <RelativeLayout android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+        <ImageView android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:id="@+id/logo"
+                   android:layout_centerHorizontal="true"
+                   android:src="@drawable/ic_launcher_background"
+        />
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@+id/logo"
+                  android:id="@+id/welcome_text"
+                  android:layout_marginTop="10dp"
+                  android:textColor="@color/white"
+                  android:textSize="20sp"
+                  android:text="@string/welcome_to_share_my_journey"
+                  android:fontFamily="@font/lato_bold"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@+id/welcome_text"
+                  android:layout_marginTop="10dp"
+                  android:textSize="14sp"
+                  android:textColor="@color/white"
+                  android:text="@string/share_our_journey"
+                  android:fontFamily="@font/lato_bold"/>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="darkBlue">#011C87</color>
+    <color name="white">#FFFFFF</color>
+    <color name="light_blue">#EFF3FB</color>
+    <color name="grey_border">#F0F3F6</color>
+    <color name="grey_text">#667B9D</color>
+    <color name="blue_text">#6D9FFF</color>
+    <color name="green">#85E12A</color>
+    <color name="black">#000000</color>
+    <color name="snackbar_red">#e54e45</color>
+
+
+</resources>

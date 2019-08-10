@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="button_text_size">12sp</dimen>
+    <dimen name="edit_text_size">14sp</dimen>
+    <dimen name="font">13sp</dimen>
+
+</resources>
