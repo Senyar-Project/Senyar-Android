@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_blue">
+
+    <include
+            android:id="@+id/app_bar"
+            layout="@layout/appbar"/>
+
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/map_image"
+            android:src="@drawable/account_profile_img"
+            android:layout_below="@+id/app_bar"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"/>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/round_relative_layout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/round_box_blue_border"
+            android:layout_below="@+id/map_image">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Journey Fare"
+                android:id="@+id/text_journey_fare"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/lato_bold"
+                />
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="AED 245"
+                android:layout_below="@+id/text_journey_fare"
+                android:id="@+id/journey_fare"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/lato_bold"
+                />
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Duration                                :"
+                android:id="@+id/duration"
+                android:layout_below="@+id/journey_fare"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="5dp"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                android:fontFamily="@font/lato_regular"
+                />
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="2:15 am"
+                android:id="@+id/journey_data"
+                android:layout_below="@+id/journey_fare"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/duration"
+                android:textColor="@color/black"
+                android:fontFamily="@font/lato_regular"
+                />
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Distance                                 :"
+                android:id="@+id/distance"
+                android:layout_below="@+id/journey_data"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="5dp"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                android:fontFamily="@font/lato_regular"
+                />
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="2:15 am"
+                android:id="@+id/distance_data"
+                android:layout_below="@+id/journey_data"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/distance"
+                android:textColor="@color/black"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/lato_regular"
+                />
+    </RelativeLayout>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vehicle Type                               :"
+            android:id="@+id/vehicle_type"
+            android:layout_below="@+id/round_relative_layout"
+            android:layout_marginStart="58dp"
+            android:fontFamily="@font/lato_bold"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Type Pro"
+            android:id="@+id/vehicle_type_data"
+            android:layout_below="@+id/round_relative_layout"
+            android:layout_marginStart="78dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/vehicle_type"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato_regular"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date                                                  :"
+            android:id="@+id/date"
+            android:layout_below="@+id/vehicle_type_data"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:layout_marginStart="58dp"
+            android:fontFamily="@font/lato_bold"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="August 15,2019"
+            android:id="@+id/date_data"
+            android:layout_below="@+id/vehicle_type_data"
+            android:layout_marginStart="78dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/date"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato_regular"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time                                                  :"
+            android:id="@+id/time"
+            android:layout_below="@+id/date_data"
+            android:layout_marginStart="58dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato_bold"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="10:01 pm"
+            android:id="@+id/time_data"
+            android:layout_below="@+id/date_data"
+            android:layout_marginStart="77dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/time"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato_regular"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fare_calculation_text"
+            android:text="Fare Calculation"
+            android:fontFamily="@font/lato_bold"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_below="@+id/time_data"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="58dp"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Base Fare                                       :"
+            android:id="@+id/base_fare"
+            android:layout_below="@+id/fare_calculation_text"
+            android:layout_marginStart="58dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato_regular"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="AED 14.6"
+            android:id="@+id/base_fare_data"
+            android:layout_below="@+id/fare_calculation_text"
+            android:layout_marginStart="77dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/base_fare"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato_regular"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Distance                                         :"
+            android:id="@+id/distance_fare"
+            android:layout_below="@+id/base_fare_data"
+            android:layout_marginStart="58dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato_regular"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="AED 14.6"
+            android:id="@+id/distance_fare_data"
+            android:layout_below="@+id/base_fare_data"
+            android:layout_marginStart="77dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/base_fare"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato_regular"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Waiting                                           :"
+            android:id="@+id/waiting"
+            android:layout_below="@+id/distance_fare_data"
+            android:layout_marginStart="58dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato_regular"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="AED 14.6"
+            android:id="@+id/waiting_data"
+            android:layout_below="@+id/distance_fare_data"
+            android:layout_marginStart="77dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/waiting"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato_regular"
+            />
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Peak                                                  :"
+            android:id="@+id/peak"
+            android:layout_below="@+id/waiting_data"
+            android:layout_marginStart="58dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato_regular"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="AED 14.6"
+            android:id="@+id/peak_data"
+            android:layout_below="@+id/waiting_data"
+            android:layout_marginStart="77dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/peak"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato_regular"
+            />
+
+    <Button
+            android:layout_width="@dimen/small_button_width"
+            android:layout_height="@dimen/button_height"
+            android:id="@+id/bt_next"
+            android:text="Next"
+            style="@style/Button"
+            android:background="@drawable/round_box"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:layout_below="@+id/peak_data"/>
+</RelativeLayout>

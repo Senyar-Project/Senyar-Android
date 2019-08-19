@@ -10,6 +10,11 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
+                android:name=".Activities.DashboardRiderActivity"
+                android:label="@string/title_activity_dashboard_rider"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
                 android:name=".Activities.DashboardPassengerActivity"
                 android:label=""
                 android:theme="@style/DashboardScreen">
@@ -36,9 +41,43 @@
                 android:name=".Activities.SignInActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/NoWindow"/>
-        <activity android:name=".Activities.ForgetPasswordActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/NoWindow"/>
+        <activity
+                android:name=".Activities.ForgetPasswordActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/NoWindow"/>
+        <activity
+                android:name=".Activities.SearchLocation"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name=".Activities.PassengerInfo"
+                android:label=""
+                android:screenOrientation="portrait"
+                android:theme="@style/NoWindow"/>
+        <activity
+                android:name=".Activities.RiderReceiptActivity"
+                android:label=""
+                android:screenOrientation="portrait"
+                android:theme="@style/NoWindow"/>
+        <activity
+                android:name=".Activities.FareCalculationActivity"
+                android:label=""
+                android:screenOrientation="portrait"
+                android:theme="@style/NoWindow"/>
+        <activity
+                android:name=".Activities.Notifications"
+                android:label=""
+                android:screenOrientation="portrait"
+                android:theme="@style/NoWindow"/>
+        <activity
+                android:name=".Activities.Settings"
+                android:label=""
+                android:screenOrientation="portrait"
+                android:theme="@style/NoWindow"/>
+        <activity
+                android:name=".Activities.AccountDetailsActivity"
+                android:label=""
+                android:screenOrientation="portrait"
+                android:theme="@style/NoWindow"/>
 
         <meta-data
                 android:name="preloaded_fonts"

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/light_blue">
+
+    <include
+            android:id="@+id/app_bar"
+            layout="@layout/appbar"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/nav_header_vertical_spacing"
+            android:src="@drawable/thin_border_circle"
+            android:layout_below="@+id/app_bar"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/nav_header_desc"
+            android:id="@+id/imageView"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:id="@+id/tv_name"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_below="@+id/app_bar"
+            android:textColor="@color/darkBlue"
+            android:text="Wajhia Maqsood"
+            android:layout_toEndOf="@+id/imageView"
+            android:fontFamily="@font/lato_bold"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_alignStart="@+id/tv_name"
+            android:layout_below="@+id/tv_name"
+            android:textColor="@color/darkBlue"
+            android:text="Edit profile"
+            android:layout_toEndOf="@+id/imageView"
+            android:fontFamily="@font/lato_bold"/>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:id="@+id/view_image"
+            android:layout_below="@+id/imageView"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/darkBlue"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Driving Licence number                :"
+            android:id="@+id/licence_number"
+            android:layout_below="@+id/view_image"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="40dp"
+            android:textColor="@color/darkBlue"
+            android:fontFamily="@font/lato_regular"
+            />
+
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="PK-234-456"
+            android:id="@+id/licence_number_data"
+            android:layout_below="@+id/view_image"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_toEndOf="@+id/licence_number"
+            android:textColor="@color/darkBlue"
+            android:fontFamily="@font/lato_regular"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vehicle number                                   :"
+            android:id="@+id/vehicle_number"
+            android:layout_below="@+id/licence_number_data"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/darkBlue"
+            android:fontFamily="@font/lato_regular"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="ABC-1234"
+            android:id="@+id/vehicle_number_data"
+            android:layout_below="@+id/licence_number"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/vehicle_number"
+            android:textColor="@color/darkBlue"
+            android:fontFamily="@font/lato_regular"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Credit Card number                         :"
+            android:id="@+id/credit_number"
+            android:layout_below="@+id/vehicle_number_data"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/darkBlue"
+            android:fontFamily="@font/lato_regular"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="0067846343"
+            android:id="@+id/credit_number_data"
+            android:layout_below="@+id/vehicle_number_data"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/credit_number"
+            android:textColor="@color/darkBlue"
+            android:fontFamily="@font/lato_regular"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mobile number                                    :"
+            android:id="@+id/mobile_number"
+            android:layout_below="@+id/credit_number_data"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/darkBlue"
+            android:fontFamily="@font/lato_regular"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="0334512232398"
+            android:id="@+id/mobile_number_data"
+            android:layout_below="@+id/credit_number_data"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/mobile_number"
+            android:textColor="@color/darkBlue"
+            android:fontFamily="@font/lato_regular"
+            />
+
+
+</RelativeLayout>

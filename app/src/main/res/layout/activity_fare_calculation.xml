@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_blue">
+
+    <include
+            android:id="@+id/app_bar"
+            layout="@layout/appbar"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato_bold"
+            android:text="Fare Calculation"
+            android:textSize="20sp"
+            android:layout_below="@+id/app_bar"
+            android:textColor="@color/darkBlue"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/text_welcome"
+            />
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/map_image"
+            android:src="@drawable/account_profile_img"
+            android:layout_below="@+id/text_welcome"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Leaving from                               :"
+            android:id="@+id/leaving_from"
+            android:layout_below="@+id/map_image"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato_regular"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="City Square"
+            android:id="@+id/leaving_from_data"
+            android:layout_below="@+id/map_image"
+            android:layout_marginStart="78dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/leaving_from"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato_regular"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Going to                                         :"
+            android:id="@+id/going_to"
+            android:layout_below="@+id/leaving_from_data"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato_regular"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Central Arena"
+            android:id="@+id/going_to_data"
+            android:layout_below="@+id/leaving_from_data"
+            android:layout_marginStart="78dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/going_to"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato_regular"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date                                                  :"
+            android:id="@+id/date"
+            android:layout_below="@+id/going_to_data"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato_regular"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="15th August 2019"
+            android:id="@+id/date_data"
+            android:layout_below="@+id/going_to_data"
+            android:layout_marginStart="78dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/going_to"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato_regular"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time                                                  :"
+            android:id="@+id/time"
+            android:layout_below="@+id/date_data"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato_regular"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="2:15 am"
+            android:id="@+id/time_data"
+            android:layout_below="@+id/date_data"
+            android:layout_marginStart="78dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/time"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato_regular"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Approximate Fare"
+            android:id="@+id/approx_fare"
+            android:layout_below="@+id/time_data"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:fontFamily="@font/lato_bold"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="AED 100"
+            android:id="@+id/approx_fare_data"
+            android:layout_below="@+id/approx_fare"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:fontFamily="@font/lato_bold"/>
+
+    <Button
+            android:layout_width="@dimen/small_button_width"
+            android:layout_height="@dimen/button_height"
+            android:id="@+id/bt_next"
+            android:text="Search for Rides"
+            style="@style/Button"
+            android:background="@drawable/round_box"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:layout_below="@+id/approx_fare_data"/>
+</RelativeLayout>
