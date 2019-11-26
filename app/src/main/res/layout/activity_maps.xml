@@ -1,0 +1,76 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/map"
+              android:name="com.google.android.gms.maps.SupportMapFragment"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context="boommba.apps.prototype.draggablemapviewandroid.MapsActivity"/>
+
+    <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/marker"
+            android:text="TextView"/>
+
+    <TextView
+            android:id="@+id/dragg_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#8c000000"
+            android:gravity="center_horizontal"
+            android:padding="20dp"
+            android:visibility="gone"
+            android:text="Please drag map to your address.."
+            android:textColor="#ffffff"
+            android:textSize="18dp"/>
+
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/button_height"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_round"
+            android:layout_weight="7">
+
+        <fragment
+                android:id="@+id/autocomplete_fragment"
+                android:layout_width="match_parent"
+                android:text="Search Location"
+                android:layout_height="wrap_content"
+                android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+                />
+    </RelativeLayout>
+    <!--   <Button android:layout_width="match_parent"
+               android:layout_height="@dimen/button_height"
+               android:layout_alignParentTop="true"
+               android:layout_marginBottom="30dp"
+               android:layout_marginEnd="30dp"
+               android:id="@+id/search_location"
+               android:padding="5dp"
+               android:background="@drawable/input_layout_background"
+               android:text="Search Location"
+               style="@style/Button_Dashboard"
+               android:layout_marginTop="40dp"/>-->
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/bt_confirm"
+            android:background="@drawable/round_box_green"
+            android:layout_marginEnd="80dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginBottom="30dp"
+            android:text="Confirm"
+            style="@style/Button"/>
+</RelativeLayout>

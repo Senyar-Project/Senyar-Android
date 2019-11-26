@@ -18,7 +18,25 @@ class LoginOptionActivity : AppCompatActivity(), LoginOptionView {
     }
 
     override fun initView() {
-        bt_register.setOnClickListener { startActivity(Intent(this, SignUpActivity::class.java)) }
-        bt_sign_in.setOnClickListener { startActivity(Intent(this, SignInActivity::class.java)) }
+        bt_register.setOnClickListener {
+            if(intent.getStringExtra("role").equals("ROLE_DRIVER")){
+                val intent = Intent(this, SignUpDriverActivity::class.java)
+                intent.putExtra("activityName", getIntent().getStringExtra("activityName"))
+                startActivity(intent)
+            }
+            else {
+                val intent = Intent(this, SignUpActivity::class.java)
+                intent.putExtra("activityName", getIntent().getStringExtra("activityName"))
+                startActivity(intent)
+            }
+            finish()
+        }
+        bt_sign_in.setOnClickListener {
+            val intent = Intent(this, SignInActivity::class.java)
+            intent.putExtra("role", getIntent().getStringExtra("role"))
+            intent.putExtra("activityName", getIntent().getStringExtra("activityName"))
+            startActivity(intent)
+            finish()
+           }
     }
 }

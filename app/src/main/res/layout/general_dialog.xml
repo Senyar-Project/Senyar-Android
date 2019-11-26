@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="300dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@drawable/dialog_bg"
+                android:gravity="center"
+                android:padding="10dp">
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/dialog_title_data_navigation"
+              android:textColor="@color/black"
+              android:text="Let the passengers know your destination"
+              android:textSize="16sp"
+              android:textAlignment="center"
+              android:fontFamily="@font/lato_regular"
+              android:layout_centerHorizontal="true"
+              android:layout_marginTop="10dp"
+            />
+    <Button
+            android:id="@+id/okay"
+            android:layout_width="@dimen/small_button_width"
+            android:layout_height="@dimen/button_height"
+            android:layout_below="@+id/dialog_title_data_navigation"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_box"
+            android:text="Okay"
+            style="@style/Button"/>
+</RelativeLayout>

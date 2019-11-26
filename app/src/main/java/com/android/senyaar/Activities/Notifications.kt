@@ -16,6 +16,10 @@ import kotlinx.android.synthetic.main.activity_notifications.*
 import kotlinx.android.synthetic.main.appbar.*
 
 class Notifications:AppCompatActivity(),NotificationsView {
+    override fun showServerError(errorMessage: String, tag: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     private var presenter: NotificationsPresenter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

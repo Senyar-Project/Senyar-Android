@@ -7,6 +7,7 @@ import android.util.TypedValue
 import android.view.Gravity
 import android.widget.FrameLayout
 import android.widget.TextView
+import com.android.senyaar.Model.generalResponse
 import com.android.senyaar.Presenters.ForgetPasswordPresenter
 import com.android.senyaar.R
 import com.android.senyaar.Utils.PreferenceHelper
@@ -15,6 +16,22 @@ import com.android.senyaar.Views.SignInView
 import kotlinx.android.synthetic.main.activity_forgot_password.*
 
 class ForgetPasswordActivity : AppCompatActivity(), SignInView {
+    override fun getProfile(response: generalResponse) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun changePassword(response: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun loginSuccessful(response: generalResponse) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showServerError(errorMessage: String, tag: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     override fun successfulLogin() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }

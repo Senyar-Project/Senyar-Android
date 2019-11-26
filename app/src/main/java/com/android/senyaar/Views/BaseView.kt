@@ -7,4 +7,6 @@ interface BaseView {
     fun showProgress()
     fun hideProgress()
     fun getPreferences(): PreferenceHelper
+    fun showServerError(errorMessage:String,tag:String)
+
 }

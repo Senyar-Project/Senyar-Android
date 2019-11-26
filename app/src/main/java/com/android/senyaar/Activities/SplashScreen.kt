@@ -19,7 +19,7 @@ class SplashScreen : Activity() {
     private fun openStartup() {
         val handler = Handler()
         handler.postDelayed({
-            startActivity(Intent(this@SplashScreen, LoginOptionActivity::class.java))
+            startActivity(Intent(this@SplashScreen, DashboardPassengerActivity::class.java))
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
             finish()
         }, 2800)

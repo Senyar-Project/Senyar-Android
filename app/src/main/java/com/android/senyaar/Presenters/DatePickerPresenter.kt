@@ -15,18 +15,21 @@ class DatePickerPresenter {
             cal.set(Calendar.YEAR, year)
             cal.set(Calendar.MONTH, monthOfYear)
             cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-
             textView.text = SimpleDateFormat("dd-MMM-yyyy").format(cal.time)
-
         }
-
-        textView.setOnClickListener {
-            DatePickerDialog(
-                context, dateSetListener,
-                cal.get(Calendar.YEAR),
-                cal.get(Calendar.MONTH),
-                cal.get(Calendar.DAY_OF_MONTH)
-            ).show()
-        }
+        DatePickerDialog(
+            context, dateSetListener,
+            cal.get(Calendar.YEAR),
+            cal.get(Calendar.MONTH),
+            cal.get(Calendar.DAY_OF_MONTH)
+        ).show()
+        /*       textView.setOnClickListener {
+                   DatePickerDialog(
+                       context, dateSetListener,
+                       cal.get(Calendar.YEAR),
+                       cal.get(Calendar.MONTH),
+                       cal.get(Calendar.DAY_OF_MONTH)
+                   ).show()
+               }*/
     }
 }

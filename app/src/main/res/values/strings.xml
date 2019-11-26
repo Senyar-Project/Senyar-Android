@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Senyaar</string>
-    <string name="welcome_to_share_my_journey">\u0020 \u0020 \u0020 \u0020 \u0020Welcome to \n\u0020 \u0020Share my
-        Journey
+    <string name="welcome_to_share_my_journey">\u0020 \u0020 \u0020 \u0020Welcome to \n\u0020 \u0020 \u0020 \u0020 \u0020 \u0020 \u0020 Senyar
     </string>
     <string name="share_our_journey">\u0020 \u0020 \u0020 \u0020Let\'s share our journey</string>
     <string name="register_here">Register Here</string>
@@ -22,4 +21,10 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="title_activity_dashboard_rider">DashboardRiderActivity</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_book_ride_maps">Map</string>
+    <string name="pleasewait">Loading…</string>
+    <string name="cancel">Cancel</string>
+    <string name="retry">Retry</string>
+
 </resources>

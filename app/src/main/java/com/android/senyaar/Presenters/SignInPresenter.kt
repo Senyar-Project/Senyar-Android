@@ -1,8 +1,27 @@
 package com.android.senyaar.Presenters
 
+import com.android.senyaar.Model.SignInModel
+import com.android.senyaar.Model.generalResponse
+import com.android.senyaar.Utils.CommonMethods
+import com.android.senyaar.Utils.PreferenceHelper
 import com.android.senyaar.Views.SignInView
+import java.time.format.SignStyle
 
-class SignInPresenter(private var view: SignInView) {
+class SignInPresenter(private var view: SignInView, var model: SignInModel) : SignInModel.OnFinishedListener {
+    override fun onResultSuccess(response: generalResponse, tag: String) {
+        view.hideProgress()
+        if (tag.equals("get")) {
+            view.getProfile(response)
+        } else {
+            view.loginSuccessful(response)
+        }
+    }
+
+    override fun onResultFail(strError: String, tag: String) {
+        view.hideProgress()
+        view.showServerError(strError, tag)
+    }
+
     init {
         view.initView()
     }
@@ -12,7 +31,7 @@ class SignInPresenter(private var view: SignInView) {
             view.showSnackbar("Enter email address")
             return
         }
-        if (!emailVerification(email.replace(" ", ""))) {
+        if (!CommonMethods.emailVerification(email.replace(" ", ""))) {
             view.showSnackbar("Email address is not valid")
             return
         }
@@ -24,11 +43,19 @@ class SignInPresenter(private var view: SignInView) {
             view.showSnackbar("Password must be at least 8 characters long")
             return
         } else {
-            view.successfulLogin()
+            login(email, password)
         }
     }
 
-    fun emailVerification(email: String?): Boolean {
-        return email != null && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    fun login(email: String, password: String) {
+        view.showProgress()
+        model.login(this, email, password)
+    }
+
+    fun getProfile(
+        prefs: PreferenceHelper
+    ) {
+        view.showProgress()
+        model.getProfile(this, prefs)
     }
 }
