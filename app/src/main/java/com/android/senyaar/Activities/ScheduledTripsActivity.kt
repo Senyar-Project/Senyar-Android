@@ -55,7 +55,12 @@ class ScheduledTripsActivity : AppCompatActivity(), ScheduledTripView {
                         dataArray[item].ride_id,
                         dataArray[item].captain_id,
                         dataArray[item].schedule_id,
-                        dataArray[item].schedule_status
+                        dataArray[item].schedule_status,
+                        dataArray[item].captain_start_lat,
+                        dataArray[item].captain_start_long,
+                        dataArray[item].rider_pickup_lat,
+                        dataArray[item].rider_pickup_long,
+                        dataArray[item].rider_pickup_location_name
 
                     )
                 )

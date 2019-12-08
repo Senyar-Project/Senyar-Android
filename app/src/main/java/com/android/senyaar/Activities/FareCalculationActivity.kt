@@ -95,6 +95,8 @@ class FareCalculationActivity : AppCompatActivity(), PassengerInfoView {
             intent.putExtra("date", getIntent().getStringExtra("date"))
             intent.putExtra("time", getIntent().getStringExtra("time"))
             intent.putExtra("user_end_lat", getIntent().getStringExtra("user_end_lat"))
+            intent.putExtra("user_end_long", getIntent().getStringExtra("user_end_long"))
+
             startActivity(intent)
         }
         leaving_from_data.text = intent.getStringExtra("leaving")

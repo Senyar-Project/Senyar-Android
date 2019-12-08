@@ -12,5 +12,12 @@ data class scheduledTripModel(
     val ride_id: String?,
     val captain_id: String?,
     val schedule_id: String?,
-    val status: String?
-):Serializable
+    val status: String?,
+    val driver_start_lat: String?,
+    val driver_start_lon: String?,
+    val passenger_start_lat: String?,
+    val passenger_start_lon: String?,
+    val passenger_pickup_location:String?
+
+
+) : Serializable

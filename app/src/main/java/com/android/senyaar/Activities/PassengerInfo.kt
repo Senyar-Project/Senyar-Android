@@ -25,11 +25,18 @@ import kotlinx.android.synthetic.main.appbar.*
 import kotlinx.android.synthetic.main.general_dialog.*
 import me.drakeet.materialdialog.MaterialDialog
 import org.json.JSONObject
+import android.support.v4.app.SupportActivity
+import android.support.v4.app.SupportActivity.ExtraData
+import android.support.v4.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import com.google.android.gms.maps.model.LatLng
+
 
 class PassengerInfo : AppCompatActivity(), PassengerInfoView {
     lateinit var prefs: PreferenceHelper
     var pDialog: ProgressDialog? = null
     private var presenter: PassengerInfoPresenter? = null
+    lateinit var model: scheduledTripModel
     override fun getPreferences(): PreferenceHelper {
         return prefs
     }
@@ -39,7 +46,8 @@ class PassengerInfo : AppCompatActivity(), PassengerInfoView {
         val gsonBuilder = GsonBuilder()
         val gson = gsonBuilder.create()
         val responseModel = gson.fromJson(response, generalResponse::class.java)
-        showDialog(responseModel.message!!)
+
+        //  showDialog(responseModel.message!!)
     }
 
     fun showDialog(response: String) {
@@ -61,14 +69,28 @@ class PassengerInfo : AppCompatActivity(), PassengerInfoView {
         pDialog = MyApplication.getInstance().progressdialog(this)
         if (prefs.isLogin == "passenger") {
             bt_next.visibility = View.GONE
-        }
-        else
-        {
+        } else {
             bt_next.visibility = View.VISIBLE
 
         }
+        model = intent.getSerializableExtra("model") as scheduledTripModel
+        if (model.status.equals("Booked")) {
+            bt_next.visibility = View.VISIBLE
+        } else {
+            bt_next.visibility = View.GONE
+        }
         bt_next.setOnClickListener {
-            presenter?.startRide(createJson(), prefs)
+            if (model.ride_id != null) {
+                val intent = Intent(this, DriverTrackActivity::class.java)
+                val location = LatLng(
+                    model.passenger_start_lat!!.toDouble(),
+                    model.passenger_start_lon!!.toDouble()
+                )
+                intent.putExtra("address", location)
+                intent.putExtra("location", model.passenger_pickup_location)
+                startActivity(intent)
+                // presenter?.startRide(createJson(), prefs)
+            }
         }
     }
 
@@ -80,7 +102,6 @@ class PassengerInfo : AppCompatActivity(), PassengerInfoView {
 
     private fun createJson(): JSONObject {
         var start_ride_json: JSONObject = JSONObject()
-        val model: scheduledTripModel = intent.getSerializableExtra("model") as scheduledTripModel
         start_ride_json.put("ride_id", model.ride_id!!.toInt())
         start_ride_json.put("start_date", model.date)
         start_ride_json.put("start_time", model.time)

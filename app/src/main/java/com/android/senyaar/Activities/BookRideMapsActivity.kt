@@ -217,7 +217,7 @@ class BookRideMapsActivity : AppCompatActivity(), OnMapReadyCallback,
                     book_ride_json.put("pick_location_long", (marker.tag as InfoWindowData).start_long)
                     book_ride_json.put("pick_location_lat", (marker.tag as InfoWindowData).start_lat)
                     book_ride_json.put("pick_location_name", intent.getStringExtra("leaving"))
-                    book_ride_json.put("drop_location_long", (marker.tag as InfoWindowData).end_long)
+                    book_ride_json.put("drop_location_long", intent.getStringExtra("user_end_long"))
                     book_ride_json.put("drop_location_lat", intent.getStringExtra("user_end_lat"))
                     book_ride_json.put("drop_location_name", intent.getStringExtra("going"))
                     presenter?.bookRide(book_ride_json, prefs)
