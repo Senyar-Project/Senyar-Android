@@ -32,49 +32,21 @@ import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import com.google.android.gms.maps.model.LatLng
 
 
-class PassengerInfo : AppCompatActivity(), PassengerInfoView {
-    lateinit var prefs: PreferenceHelper
-    var pDialog: ProgressDialog? = null
-    private var presenter: PassengerInfoPresenter? = null
+class PassengerInfo : AppCompatActivity() {
     lateinit var model: scheduledTripModel
-    override fun getPreferences(): PreferenceHelper {
-        return prefs
-    }
+    lateinit var prefs: PreferenceHelper
 
-    override fun startRide(response: String) {
-        Log.d("testing", "Response" + response)
-        val gsonBuilder = GsonBuilder()
-        val gson = gsonBuilder.create()
-        val responseModel = gson.fromJson(response, generalResponse::class.java)
+     fun initView() {
+         prefs = PreferenceHelper(this)
 
-        //  showDialog(responseModel.message!!)
-    }
-
-    fun showDialog(response: String) {
-        val dialog = Dialog(this)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.general_dialog)
-        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.show()
-        dialog.dialog_title_data_navigation.text =
-            response
-        dialog.okay.setOnClickListener {
-            dialog.dismiss()
-        }
-        dialog.setCancelable(false)
-    }
-
-    override fun initView() {
-        prefs = PreferenceHelper(this)
-        pDialog = MyApplication.getInstance().progressdialog(this)
-        if (prefs.isLogin == "passenger") {
+         if (prefs.isLogin == "passenger") {
             bt_next.visibility = View.GONE
         } else {
             bt_next.visibility = View.VISIBLE
 
         }
         model = intent.getSerializableExtra("model") as scheduledTripModel
-        if (model.status.equals("Booked")) {
+        if (model.status.equals("Booked")||model.status.equals("In_Progress")) {
             bt_next.visibility = View.VISIBLE
         } else {
             bt_next.visibility = View.GONE
@@ -86,6 +58,7 @@ class PassengerInfo : AppCompatActivity(), PassengerInfoView {
                     model.passenger_start_lat!!.toDouble(),
                     model.passenger_start_lon!!.toDouble()
                 )
+                intent.putExtra("model", model)
                 intent.putExtra("address", location)
                 intent.putExtra("location", model.passenger_pickup_location)
                 startActivity(intent)
@@ -94,57 +67,17 @@ class PassengerInfo : AppCompatActivity(), PassengerInfoView {
         }
     }
 
-    override fun showProgress() {
-        if (pDialog != null) {
-            pDialog?.show()
-        }
-    }
 
-    private fun createJson(): JSONObject {
-        var start_ride_json: JSONObject = JSONObject()
-        start_ride_json.put("ride_id", model.ride_id!!.toInt())
-        start_ride_json.put("start_date", model.date)
-        start_ride_json.put("start_time", model.time)
-        return start_ride_json
-    }
 
-    override fun hideProgress() {
-        if (pDialog?.isShowing!!) {
-            pDialog?.hide()
-        }
-    }
-
-    override fun showServerError(errorMessage: String, tag: String) {
-        server_alertdialog(errorMessage, tag)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_passenger_info)
+        initView()
         customToolbar()
-        presenter = PassengerInfoPresenter(this, PassengerInfoModel())
         updateView(intent.getSerializableExtra("model") as scheduledTripModel)
     }
 
-    private fun server_alertdialog(msg: String, tag: String) {
-        val mMaterialDialog = MaterialDialog(this)
-        mMaterialDialog.setMessage(msg)
-        mMaterialDialog.setCanceledOnTouchOutside(false)
-        mMaterialDialog.setNegativeButton(resources.getString(R.string.cancel)) {
-            mMaterialDialog.dismiss()
-        }
-        mMaterialDialog.setPositiveButton(resources.getString(R.string.retry)) {
-            mMaterialDialog.dismiss()
-            // if (tag.equals("get")) {
-            presenter?.startRide(createJson(), prefs)
-            //}
-        }
-        try {
-            mMaterialDialog.show()
-        } catch (e: Exception) {
-        }
-
-    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {

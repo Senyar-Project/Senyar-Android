@@ -20,14 +20,18 @@ import android.view.MenuItem
 import android.view.View
 import android.view.Window
 import android.widget.Toast
+import com.android.senyaar.Model.PassengerInfoModel
 import com.android.senyaar.Model.generalResponse
+import com.android.senyaar.Model.scheduledTripModel
 import com.android.senyaar.Presenters.PassengerInfoPresenter
 import com.android.senyaar.R
+import com.android.senyaar.Utils.MyApplication
 import com.android.senyaar.Utils.PreferenceHelper
 import com.android.senyaar.Views.PassengerInfoView
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.GoogleApiClient
+import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationListener
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
@@ -49,6 +53,7 @@ import com.google.maps.model.TravelMode
 import kotlinx.android.synthetic.main.general_dialog.*
 import me.drakeet.materialdialog.MaterialDialog
 import org.joda.time.DateTime
+import org.json.JSONObject
 import java.io.IOException
 import java.lang.Exception
 import java.util.*
@@ -72,11 +77,13 @@ class DriverTrackActivity : AppCompatActivity(), OnMapReadyCallback, PassengerIn
     var p1: LatLng? = null
 
     private lateinit var mMap: GoogleMap
+    private var fusedLocationProviderClient: FusedLocationProviderClient? = null
     var address = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.driver_track_activity)
+        presenter = PassengerInfoPresenter(this, PassengerInfoModel())
         //initView()
     }
 
@@ -84,15 +91,27 @@ class DriverTrackActivity : AppCompatActivity(), OnMapReadyCallback, PassengerIn
         return prefs
     }
 
+    private fun createJson(): JSONObject {
+        var model: scheduledTripModel = intent.getSerializableExtra("model") as scheduledTripModel
+        var start_ride_json: JSONObject = JSONObject()
+        start_ride_json.put("ride_id", model.ride_id!!.toInt())
+        start_ride_json.put("start_date", model.date)
+        start_ride_json.put("start_time", model.time)
+        return start_ride_json
+    }
+
+
     override fun startRide(response: String) {
         Log.d("testing", "Response" + response)
         val gsonBuilder = GsonBuilder()
         val gson = gsonBuilder.create()
         val responseModel = gson.fromJson(response, generalResponse::class.java)
-        showDialog(responseModel.message!!)
+        if (responseModel.code.equals("200")) {
+            showDialog(responseModel.message!!, "okay")
+        }
     }
 
-    fun showDialog(response: String) {
+    fun showDialog(response: String, tag: String) {
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.general_dialog)
@@ -102,6 +121,10 @@ class DriverTrackActivity : AppCompatActivity(), OnMapReadyCallback, PassengerIn
             response
         dialog.okay.setOnClickListener {
             dialog.dismiss()
+            if (tag.equals("start")) {
+                presenter?.startRide(createJson(), prefs)
+            } else {
+            }
         }
         dialog.setCancelable(false)
     }
@@ -133,7 +156,7 @@ class DriverTrackActivity : AppCompatActivity(), OnMapReadyCallback, PassengerIn
         mMaterialDialog.setPositiveButton(resources.getString(R.string.retry)) {
             mMaterialDialog.dismiss()
             // if (tag.equals("get")) {
-           // presenter?.startRide(createJson(), prefs)
+            presenter?.startRide(createJson(), prefs)
             //}
         }
         try {
@@ -225,7 +248,9 @@ class DriverTrackActivity : AppCompatActivity(), OnMapReadyCallback, PassengerIn
     }
 
     override fun initView() {
-        //supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        prefs = PreferenceHelper(this)
+        pDialog = MyApplication.getInstance().progressdialog(this)
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkLocationPermission()
         }
@@ -343,6 +368,9 @@ class DriverTrackActivity : AppCompatActivity(), OnMapReadyCallback, PassengerIn
         newLocation.longitude = p1!!.longitude;
 //float distance = crntLocation.distanceTo(newLocation);  in meters
         var distance = crntLocation.distanceTo(newLocation) / 1000; // in km
+        if (distance < 1) {
+            showDialog("Start Ride", "start")
+        }
     }
 
     fun checkLocationPermission(): Boolean {
