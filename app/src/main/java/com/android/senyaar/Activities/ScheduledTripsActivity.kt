@@ -60,6 +60,8 @@ class ScheduledTripsActivity : AppCompatActivity(), ScheduledTripView {
                         dataArray[item].captain_start_long,
                         dataArray[item].rider_pickup_lat,
                         dataArray[item].rider_pickup_long,
+                        dataArray[item].rider_dropoff_lat,
+                        dataArray[item].rider_dropoff_long,
                         dataArray[item].rider_pickup_location_name
 
                     )

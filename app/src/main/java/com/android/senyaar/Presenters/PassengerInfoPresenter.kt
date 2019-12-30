@@ -13,9 +13,11 @@ class PassengerInfoPresenter(private var view: PassengerInfoView, var model: Pas
 
     override fun onResultSuccess(response: String, tag: String) {
         view.hideProgress()
-        //if (tag.equals("start")) {
-        view.startRide(response)
-        //}
+        if (tag.equals("start")) {
+            view.startRide(response)
+        } else {
+            view.completeRide(response)
+        }
 
     }
 
@@ -31,6 +33,14 @@ class PassengerInfoPresenter(private var view: PassengerInfoView, var model: Pas
     ) {
         view.showProgress()
         model.startRide(this, start_ride_json, prefs)
+    }
+
+    fun completeRide(
+        end_ride_json: JSONObject,
+        prefs: PreferenceHelper
+    ) {
+        view.showProgress()
+        model.completeRide(this, end_ride_json, prefs)
     }
 
     fun fareEstimate(

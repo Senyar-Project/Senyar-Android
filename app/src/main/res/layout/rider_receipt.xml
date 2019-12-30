@@ -115,6 +115,7 @@
             android:id="@+id/vehicle_type"
             android:layout_below="@+id/round_relative_layout"
             android:layout_marginStart="58dp"
+            android:visibility="gone"
             android:fontFamily="@font/lato_bold"
             android:layout_marginTop="20dp"
             android:textColor="@color/black"
@@ -132,6 +133,8 @@
             android:layout_toEndOf="@+id/vehicle_type"
             android:textColor="@color/black"
             android:fontFamily="@font/lato_regular"
+            android:visibility="gone"
+
             />
 
     <TextView
@@ -212,7 +215,7 @@
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="AED 14.6"
+            android:text="AED 60"
             android:id="@+id/base_fare_data"
             android:layout_below="@+id/fare_calculation_text"
             android:layout_marginStart="77dp"
@@ -252,6 +255,7 @@
             android:layout_height="wrap_content"
             android:text="Waiting                                           :"
             android:id="@+id/waiting"
+            android:visibility="gone"
             android:layout_below="@+id/distance_fare_data"
             android:layout_marginStart="58dp"
             android:layout_marginTop="20dp"
@@ -264,6 +268,7 @@
             android:layout_height="wrap_content"
             tools:text="AED 14.6"
             android:id="@+id/waiting_data"
+            android:visibility="gone"
             android:layout_below="@+id/distance_fare_data"
             android:layout_marginStart="77dp"
             android:layout_marginTop="20dp"
@@ -276,6 +281,7 @@
             android:layout_height="wrap_content"
             android:text="Peak                                                  :"
             android:id="@+id/peak"
+            android:visibility="gone"
             android:layout_below="@+id/waiting_data"
             android:layout_marginStart="58dp"
             android:layout_marginTop="20dp"
@@ -288,6 +294,7 @@
             android:layout_height="wrap_content"
             tools:text="AED 14.6"
             android:id="@+id/peak_data"
+            android:visibility="gone"
             android:layout_below="@+id/waiting_data"
             android:layout_marginStart="77dp"
             android:layout_marginTop="20dp"

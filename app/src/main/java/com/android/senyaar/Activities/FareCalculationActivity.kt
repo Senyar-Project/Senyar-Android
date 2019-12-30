@@ -33,6 +33,9 @@ import java.util.HashMap
 
 
 class FareCalculationActivity : AppCompatActivity(), PassengerInfoView {
+    override fun completeRide(response: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     lateinit var prefs: PreferenceHelper
     private var presenter: PassengerInfoPresenter? = null

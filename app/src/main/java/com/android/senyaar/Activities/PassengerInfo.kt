@@ -36,38 +36,40 @@ class PassengerInfo : AppCompatActivity() {
     lateinit var model: scheduledTripModel
     lateinit var prefs: PreferenceHelper
 
-     fun initView() {
-         prefs = PreferenceHelper(this)
-
-         if (prefs.isLogin == "passenger") {
-            bt_next.visibility = View.GONE
-        } else {
-            bt_next.visibility = View.VISIBLE
-
-        }
+    fun initView() {
+        prefs = PreferenceHelper(this)
         model = intent.getSerializableExtra("model") as scheduledTripModel
-        if (model.status.equals("Booked")||model.status.equals("In_Progress")) {
-            bt_next.visibility = View.VISIBLE
-        } else {
+        if (prefs.isLogin == "passenger") {
             bt_next.visibility = View.GONE
+        } else {
+            if (model.status.equals("Booked") || model.status.equals("In_Progress")) {
+                bt_next.visibility = View.VISIBLE
+            } else {
+                bt_next.visibility = View.GONE
+            }
         }
+
         bt_next.setOnClickListener {
             if (model.ride_id != null) {
                 val intent = Intent(this, DriverTrackActivity::class.java)
-                val location = LatLng(
+                val location_pickup = LatLng(
                     model.passenger_start_lat!!.toDouble(),
                     model.passenger_start_lon!!.toDouble()
                 )
+                val location_drop = LatLng(
+                    model.passenger_end_lat!!.toDouble(),
+                    model.passenger_end_lon!!.toDouble()
+                )
                 intent.putExtra("model", model)
-                intent.putExtra("address", location)
+                intent.putExtra("address", location_pickup)
+                intent.putExtra("address_dropoff", location_drop)
                 intent.putExtra("location", model.passenger_pickup_location)
+                intent.putExtra("status", model.status)
                 startActivity(intent)
                 // presenter?.startRide(createJson(), prefs)
             }
         }
     }
-
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

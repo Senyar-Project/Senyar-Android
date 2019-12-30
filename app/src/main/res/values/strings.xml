@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Senyaar</string>
-    <string name="welcome_to_share_my_journey">\u0020 \u0020 \u0020 \u0020Welcome to \n\u0020 \u0020 \u0020 \u0020 \u0020 \u0020 \u0020 Senyar
+    <string name="app_name">Senyaarapp</string>
+    <string name="welcome_to_share_my_journey">\u0020 \u0020 \u0020 \u0020Welcome to \n\u0020 \u0020 \u0020 \u0020 \u0020Senyarapp
     </string>
     <string name="share_our_journey">\u0020 \u0020 \u0020 \u0020Let\'s share our journey</string>
     <string name="register_here">Register Here</string>

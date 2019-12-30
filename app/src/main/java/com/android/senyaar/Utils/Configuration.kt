@@ -12,12 +12,13 @@ class Configuration {
         var ENDPOINT_SCHEDULED_RIDES_PASSENGER = BASE_URL + "ride/history"
         var ENDPOINT_BOOK_RIDE = BASE_URL + "ride/book"
         var ENDPOINT_START_RIDE = BASE_URL + "ride/start"
+        var ENDPOINT_COMPLETE_RIDE = BASE_URL + "ride/complete"
         var ENDPOINT_GET_PROFILE = BASE_URL + "users/profile"
         var ENDPOINT_UPDATE_PROFILE = BASE_URL + "users/profile/update"
         var ENDPOINT_MAPS = "https://maps.googleapis.com/maps/api/directions/"
         var ENDPOINT_FARE_ESTIMATE = BASE_URL + "ride/estimate"
         var ENDPOINT_UPLOAD_IMAGE = BASE_URL + "files/upload/user-profile"
-        var ENDPOINT_RESET_PASSWORD = BASE_URL +"users/reset-password"
+        var ENDPOINT_RESET_PASSWORD = BASE_URL + "users/reset-password"
 
     }
 }

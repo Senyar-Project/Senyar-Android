@@ -31,7 +31,7 @@
             <ImageView android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:id="@+id/driver_link"
-                       android:layout_marginEnd="20dp"
+                       android:layout_marginEnd="10dp"
                        android:src="@drawable/become_driver_grp"
             />
             <View android:layout_width="match_parent"

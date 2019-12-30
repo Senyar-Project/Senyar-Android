@@ -32,4 +32,7 @@ class DataResponse {
     @SerializedName("estimated_fare")
     var estimated_fare: String? = null
 
+    //For Fare estimate
+    @SerializedName("total_amount")
+    var total_amount: String? = null
 }

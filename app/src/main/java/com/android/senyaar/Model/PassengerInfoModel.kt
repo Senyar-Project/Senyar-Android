@@ -12,6 +12,7 @@ import java.util.HashMap
 class PassengerInfoModel {
     private var requestStartRide: JsonRequest? = null
     private var requestFareEstimate: JsonRequest? = null
+    private var requestCompleteRide: JsonRequest? = null
 
     lateinit var onFinished: OnFinishedListener
 
@@ -20,7 +21,11 @@ class PassengerInfoModel {
         fun onResultFail(strError: String, tag: String)
     }
 
-    fun startRide(onFinishedListener: OnFinishedListener, json: JSONObject, prefs: PreferenceHelper) {
+    fun startRide(
+        onFinishedListener: OnFinishedListener,
+        json: JSONObject,
+        prefs: PreferenceHelper
+    ) {
         onFinished = onFinishedListener
         requestStartRide = JsonRequest(MyApplication.getInstance(), requestStartRideListener)
         val params = HashMap<String, String>()
@@ -29,6 +34,26 @@ class PassengerInfoModel {
         requestStartRide?.requestString(
             "start_ride",
             Configuration.ENDPOINT_START_RIDE,
+            json,
+            params,
+            Request.Method.POST,
+            false
+        )
+    }
+
+    fun completeRide(
+        onFinishedListener: OnFinishedListener,
+        json: JSONObject,
+        prefs: PreferenceHelper
+    ) {
+        onFinished = onFinishedListener
+        requestCompleteRide = JsonRequest(MyApplication.getInstance(), requestCompleteRideListener)
+        val params = HashMap<String, String>()
+        params["Content-Type"] = "application/json; charset=utf-8"
+        params["Authorization"] = String.format("Bearer %s", prefs.sign_in_token)
+        requestCompleteRide?.requestString(
+            "end_ride",
+            Configuration.ENDPOINT_COMPLETE_RIDE,
             json,
             params,
             Request.Method.POST,
@@ -46,8 +71,19 @@ class PassengerInfoModel {
             }
         }
 
+    private val requestCompleteRideListener =
+        JsonRequest.OnRequestCompletedListener { requestName, status, response, errorMessage ->
+            if (status) {
+                Log.d("testing", "Response$response")
+                onFinished.onResultSuccess(response, "complete")
+            } else {
+                onFinished.onResultFail(errorMessage, "complete_ride")
+            }
+        }
+
+
     fun fareEstimate(
-        onFinishedListener: OnFinishedListener,json: JSONObject, prefs: PreferenceHelper
+        onFinishedListener: OnFinishedListener, json: JSONObject, prefs: PreferenceHelper
     ) {
         onFinished = onFinishedListener
         requestFareEstimate = JsonRequest(MyApplication.getInstance(), requestStartRideListener)

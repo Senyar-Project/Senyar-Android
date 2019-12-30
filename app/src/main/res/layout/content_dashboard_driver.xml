@@ -1,103 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:background="@color/light_blue"
         android:layout_height="match_parent"
+        android:background="@color/light_blue"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:showIn="@layout/app_bar_dashboard_driver"
-        tools:context=".Activities.DashboardDriverActivity">
+        tools:context=".Activities.DashboardDriverActivity"
+        tools:showIn="@layout/app_bar_dashboard_driver">
 
     <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/text_welcome"
-            android:textColor="@color/darkBlue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/lato_bold"
             android:text="Welcome,Driver"
-            android:textSize="20sp"
-            android:fontFamily="@font/lato_bold"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            />
+            android:textColor="@color/darkBlue"
+            android:textSize="20sp" />
 
     <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/text_drivers"
-            android:layout_below="@+id/text_welcome"
-            android:textColor="@color/black"
-            android:text="Let the passengers know your destination"
-            android:textSize="16sp"
-            android:fontFamily="@font/lato_regular"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            />
-
-    <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/text_search_driver"
-            android:layout_below="@+id/text_drivers"
+            android:layout_below="@+id/text_welcome"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/lato_regular"
+            android:text="Let the passengers know your destination"
             android:textColor="@color/black"
-            android:text="Search for Rides"
-            android:textSize="16sp"
-            android:fontFamily="@font/lato_bold"
+            android:textSize="16sp" />
+
+    <TextView
+            android:id="@+id/text_search_driver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_drivers"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            />
+            android:fontFamily="@font/lato_bold"
+            android:text="Search for Rides"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
     <Button
+            android:id="@+id/bt_leaving_from"
+            style="@style/Button_Dashboard"
             android:layout_width="@dimen/button_width"
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_search_driver"
-            android:id="@+id/bt_leaving_from"
-            android:padding="10dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/input_layout_background"
-            android:text="Leave from"
-            style="@style/Button_Dashboard"
-            android:layout_marginTop="20dp"/>
+            android:padding="10dp"
+            android:text="Leave from" />
 
     <Button
+            android:id="@+id/bt_going_to"
+            style="@style/Button_Dashboard"
             android:layout_width="@dimen/button_width"
             android:layout_height="wrap_content"
             android:layout_below="@+id/bt_leaving_from"
-            android:id="@+id/bt_going_to"
+            android:layout_marginTop="20dp"
             android:background="@drawable/input_layout_background"
-            android:text="Going to"
             android:padding="10dp"
-            style="@style/Button_Dashboard"
-            android:layout_marginTop="20dp"/>
+            android:text="Going to" />
 
     <Button
+            android:id="@+id/bt_departure_time"
+            style="@style/Button_Dashboard"
             android:layout_width="@dimen/button_width"
             android:layout_height="wrap_content"
             android:layout_below="@+id/bt_going_to"
-            android:id="@+id/bt_departure_time"
+            android:layout_marginTop="20dp"
             android:background="@drawable/input_layout_background"
-            android:text="Departure Time"
-            style="@style/Button_Dashboard"
-            android:layout_marginTop="20dp"/>
+            android:text="Departure Time" />
 
     <Button
+            android:id="@+id/bt_departure_date"
+            style="@style/Button_Dashboard"
             android:layout_width="@dimen/button_width"
             android:layout_height="wrap_content"
             android:layout_below="@+id/bt_departure_time"
-            android:id="@+id/bt_departure_date"
+            android:layout_marginTop="20dp"
             android:background="@drawable/input_layout_background"
-            android:text="Departure Date"
-            style="@style/Button_Dashboard"
-            android:layout_marginTop="20dp"/>
+            android:text="Departure Date" />
 
     <Button
+            android:id="@+id/bt_next"
+            style="@style/Button"
             android:layout_width="@dimen/small_button_width"
             android:layout_height="@dimen/button_height"
             android:layout_below="@+id/bt_departure_date"
-            android:id="@+id/bt_next"
-            android:background="@drawable/round_box"
             android:layout_centerHorizontal="true"
-            android:text="Find Rides"
-            style="@style/Button"
-            android:layout_marginTop="40dp"/>
+            android:layout_marginTop="40dp"
+            android:background="@drawable/round_box"
+            android:text="Set Ride Schedule" />
 </RelativeLayout>

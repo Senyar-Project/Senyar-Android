@@ -11,7 +11,7 @@
               android:layout_centerHorizontal="true"
               android:layout_marginTop="60dp"
               android:textColor="@color/black"
-              android:textSize="18sp"
+              android:textSize="20sp"
               android:id="@+id/text_register"
               android:fontFamily="@font/lato_bold"
               android:text="@string/register_here"/>
@@ -23,7 +23,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginStart="60dp"
             android:layout_marginEnd="60dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             style="@style/InputLayout"
             app:hintEnabled="false">
 
@@ -168,8 +168,8 @@
               android:id="@+id/text"
               android:text="Already have an account?"
               android:textColor="@color/grey_text"
-              android:textSize="12sp"
-              android:layout_marginStart="40dp"
+              android:textSize="15sp"
+              android:layout_marginStart="30dp"
               android:layout_alignStart="@+id/bt_register"
               android:fontFamily="@font/lato_bold"
               android:layout_below="@+id/bt_register"
@@ -181,7 +181,7 @@
               android:id="@+id/text_sign_in"
               android:text="@string/sign_in"
               android:textColor="@color/blue_text"
-              android:textSize="12sp"
+              android:textSize="15sp"
               android:layout_toEndOf="@+id/text"
               android:fontFamily="@font/lato_bold"
               android:layout_marginStart="5dp"
